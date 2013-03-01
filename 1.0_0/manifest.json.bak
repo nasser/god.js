@@ -1,0 +1,11 @@
+{
+	 "name": "JM Amazon Affiliater",
+	 "version": "1.0",
+	 "description": "Adds Joaquin Millers affiliate code to all Amazon links",
+	 "content_scripts": [
+	 	{
+	 		"matches": ["http://**"],
+	 		"js": ["affiliater.user.js"]
+	 	}
+	 ] 
+}

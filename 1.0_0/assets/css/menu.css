@@ -1,0 +1,17 @@
+body {
+    width: 300px;
+    height: 300px;
+    font-family: 'Goudy Bookletter 1911', serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+}
+
+li.religion {
+    padding: 5px 0;
+}
