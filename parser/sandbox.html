@@ -32,7 +32,7 @@
       scriptofjava = white? 'as it was said in the script of java 'i code:notamen+ amen punctuation  { return code.join(' ') + ';' } \
       bullshit = white? words:word+ punctuation { return '// ' + words.join(' ') + '\\n' } \
       \
-      string = string_spaces / string_spaceless
+      string = string_spaces / string_spaceless \
       string_spaces = ('the'i white)? 'verse'i white s:notamen+ amen { return '\"' + s.join(' ') + '\"' } \
       string_spaceless = ('the'i white)? 'word'i white w:[^ ]+ { return '\"' + w.join('') + '\"' } \
       \
