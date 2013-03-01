@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f8b71af9-927a-4dcc-9c1b-71ba1ed5a5c0" name="Default" comment="" />
+    <list default="true" id="f8b71af9-927a-4dcc-9c1b-71ba1ed5a5c0" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/1.0_0/assets/js/Religion.js" afterPath="$PROJECT_DIR$/1.0_0/assets/js/Religion.js" />
+    </list>
     <ignored path="god.js.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -47,19 +49,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Religion.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Religion.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/1.0_0/assets/js/Religion.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="32" selection-start="119" selection-end="120" vertical-scroll-proportion="-2.4">
+            <state line="52" column="46" selection-start="1824" selection-end="1824" vertical-scroll-proportion="0.67790264">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fetchReligions.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="fetchReligions.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/1.0_0/assets/js/fetchReligions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="8" selection-start="637" selection-end="637" vertical-scroll-proportion="0.45617172">
+            <state line="3" column="15" selection-start="69" selection-end="69" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -102,10 +104,10 @@
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-18/spinnin.js" />
         <option value="$PROJECT_DIR$/1.0_0/assets/css/menu.css" />
         <option value="$PROJECT_DIR$/1.0_0/assets/js/common.js" />
-        <option value="$PROJECT_DIR$/1.0_0/assets/js/Religion.js" />
         <option value="$PROJECT_DIR$/1.0_0/assets/css/common.css" />
         <option value="$PROJECT_DIR$/1.0_0/assets/js/menu.js" />
         <option value="$PROJECT_DIR$/1.0_0/assets/js/fetchReligions.js" />
+        <option value="$PROJECT_DIR$/1.0_0/assets/js/Religion.js" />
       </list>
     </option>
   </component>
@@ -304,7 +306,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="1" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -416,13 +418,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/1.0_0/assets/js/Religion.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="32" selection-start="119" selection-end="120" vertical-scroll-proportion="-2.4">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/1.0_0/assets/css/menu.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="4" selection-start="124" selection-end="168" vertical-scroll-proportion="0.0">
@@ -439,7 +434,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/1.0_0/assets/js/fetchReligions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="8" selection-start="637" selection-end="637" vertical-scroll-proportion="0.45617172">
+        <state line="3" column="15" selection-start="69" selection-end="69" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1.0_0/assets/js/Religion.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="46" selection-start="1824" selection-end="1824" vertical-scroll-proportion="0.67790264">
           <folding />
         </state>
       </provider>

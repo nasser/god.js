@@ -25,7 +25,7 @@ function Religion(religionName, scriptureLocation, iconLocation) {
          * sandboxing issues.
          */
 
-        if(this.scriptureText == undefined || this.scriptureText == "") {
+        if(this.scriptureText == undefined) {
             var fuckYouScopeIssuesThisIsTheReligion = this;
             $.ajax({url: "".concat("http://beatrixruf.com/fetch.php?script=", this.scriptureLocation),
                 success: function(data) {
@@ -40,7 +40,7 @@ function Religion(religionName, scriptureLocation, iconLocation) {
     }
 
     this.interpretScripture = function () {
-        if(this.scripture.text == undefined || this.scripture.text == "") {
+        if(this.scripture.text == undefined) {
             this.fetchScripture(this.interpretScripture);
         }
         else {
@@ -50,7 +50,7 @@ function Religion(religionName, scriptureLocation, iconLocation) {
     }
 
     this.load = function () {
-        if(this.scripture.script == undefined || this.scripture.script == "") {
+        if(this.scripture.script == undefined) {
             this.fetchScripture(this.load);
         }
         else {
