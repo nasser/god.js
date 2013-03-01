@@ -36,6 +36,88 @@
       string_spaces = ('the'i white)? 'verse'i white s:notamen+ amen { return '\"' + s.join(' ') + '\"' } \
       string_spaceless = ('the'i white)? 'word'i white w:[^ ]+ { return '\"' + w.join('') + '\"' } \
       \
+      number = n:small_num white m:magnitude { return n * m } \
+      \
+      number_lthundred = number_twenty_hundred / small_num \
+      number_twenty_hundred = m:medium_num white s:small_num { return m + s } \
+      \
+      small_num = \
+        zero_lit / \
+        one_lit / \
+        two_lit / \
+        three_lit / \
+        four_lit / \
+        five_lit / \
+        six_lit / \
+        seven_lit / \
+        eight_lit / \
+        nine_lit / \
+        ten_lit / \
+        eleven_lit / \
+        twelve_lit / \
+        thirteen_lit / \
+        fourteen_lit / \
+        fifteen_lit / \
+        sixteen_lit / \
+        seventeen_lit / \
+        eighteen_lit / \
+        nineteen_lit \
+      \
+      medium_num = \
+        twenty_lit / \
+        thirty_lit / \
+        forty_lit / \
+        fifty_lit / \
+        ninety_lit / \
+        eighty_lit / \
+        seventy_lit / \
+        sixty_lit / \
+      \
+      magnitude = first:magnitude_lit rest:(white magnitude_lit)* { return [first].concat(rest.flatten()).clean().reduce(function(prev, cur, i, ary) { return prev * cur; }) } \
+      magnitude_lit = hundred_lit / thousand_lit / million_lit / billion_lit / trillion_lit / quadrillion_lit / quintillion_lit / sextillion_lit / septillion_lit / octillion_lit / nonillion_lit / decillion_lit / \
+      \
+      zero_lit = 'zero'i { return 0 } \
+      one_lit = 'one'i { return 1 } \
+      two_lit = 'two'i { return 2 } \
+      three_lit = 'three'i { return 3 } \
+      four_lit = 'four'i { return 4 } \
+      five_lit = 'five'i { return 5 } \
+      six_lit = 'six'i { return 6 } \
+      seven_lit = 'seven'i { return 7 } \
+      eight_lit = 'eight'i { return 8 } \
+      nine_lit = 'nine'i { return 9 } \
+      ten_lit = 'ten'i { return 10 } \
+      eleven_lit = 'eleven'i { return 11 } \
+      twelve_lit = 'twelve'i { return 12 } \
+      thirteen_lit = 'thirteen'i { return 13 } \
+      fourteen_lit = 'fourteen'i { return 14 } \
+      fifteen_lit = 'fifteen'i { return 15 } \
+      sixteen_lit = 'sixteen'i { return 16 } \
+      seventeen_lit = 'seventeen'i { return 17 } \
+      eighteen_lit = 'eighteen'i { return 18 } \
+      nineteen_lit = 'nineteen'i { return 19 } \
+      twenty_lit = 'twenty'i { return 20 } \
+      thirty_lit = 'thirty'i { return 30 } \
+      forty_lit = 'forty'i { return 40 } \
+      fifty_lit = 'fifty'i { return 50 } \
+      sixty_lit = 'sixty'i { return 60 } \
+      seventy_lit = 'seventy'i { return 70 } \
+      eighty_lit = 'eighty'i { return 80 } \
+      ninety_lit = 'ninety'i { return 90 } \
+      \
+      hundred_lit = 'hundred'i { return 100 } \
+      thousand_lit = 'thousand'i { return 1000 } \
+      million_lit = 'million'i { return 1000000 } \
+      billion_lit = 'billion'i { return 1000000000 } \
+      trillion_lit = 'trillion'i { return 1000000000000 } \
+      quadrillion_lit = 'quadrillion'i { return 1000000000000000 } \
+      quintillion_lit = 'quintillion'i { return 1000000000000000000 } \
+      sextillion_lit = 'sextillion'i { return 1000000000000000000000 } \
+      septillion_lit = 'septillion'i { return 1000000000000000000000000 } \
+      octillion_lit = 'octillion'i { return 1000000000000000000000000000 } \
+      nonillion_lit = 'nonillion'i { return 1000000000000000000000000000000 } \
+      decillion_lit = 'decillion'i { return 1000000000000000000000000000000000 } \
+      \
       amen = 'amen'i { return ';' } \
       notamen = !amen w:[^ ]+ white { return w.join('') } \
       \
