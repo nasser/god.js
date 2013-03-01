@@ -6,11 +6,19 @@
  * To change this template use File | Settings | File Templates.
  */
 
+/*if(localStorage['attempts-since-update'] == undefined || localStorage['attempts-since-update'] == "NaN") {
+	localStorage['attempts-since-update'] = 0;
+}
+if(localStorage['religions'] == undefined || localStorage['attempts-since-update'] > 4) {*/
 fetchReligions(religionsReady);
+//}
+
+
 
 function religionsReady (religion_list) {
 
 	if(religion_list) {
+		localStorage['religions'] = religion_list;
 		var religions = religion_list;
 	}
 
@@ -24,6 +32,8 @@ function religionsReady (religion_list) {
 
 	chrome.tabs.insertCSS(null,{ file: "/assets/css/common.css" });
 	chrome.tabs.executeScript(null, { file: "/assets/js/common.js" });
+
+	chrome.tabs.executeScript(null, { code: '$("#divine-message-wrapper").fadeIn(500)' });
 
 	$.each(religions, function(index, religion) {
 		religion.listItem = religion.renderListItem();
@@ -41,11 +51,10 @@ function religionsReady (religion_list) {
 	$(religion.listItem).find(".view-scripture").on("click", function() {
 				chrome.tabs.executeScript(null, { code: '$("#divine-message-wrapper").fadeIn(500)' });
 
-				chrome.tabs.executeScript(null, { code: "".concat('$("#divine-message").html("',
-															'<pre><code data-language="javascript">',
-																religion.scripture.text,
-															'</code></pre>',
-														'");') });
+				chrome.tabs.executeScript(null, {
+					code: '$("#divine-message").html(unescape("' +
+						escape("<pre><code data-language='javascript'>" +
+						religion.scripture.text + "</code></pre>") + '"))' });
 			});
 			$('#religions_list').append(religion.listItem);
 
