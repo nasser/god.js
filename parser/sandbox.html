@@ -1,0 +1,27 @@
+<html>
+<head>
+  <title>God Test</title>
+  <script type="text/javascript" src="peg.js"></script>
+  <script type="text/javascript">
+  var God = {
+    parser: PEG.buildParser("\
+      start = s:sentence* { return s.join('') } \
+      \
+      sentence = scriptofjava / bullshit \
+      scriptofjava = white? 'as it was said in the script of java 'i code:notamen+ amen punctuation  { return code.join(' ') + ';' } \
+      bullshit = white? words:word+ punctuation { return '// ' + words.join(' ') + '\\n' } \
+      \
+      amen = 'amen'i { return ';' } \
+      notamen = !amen w:[^ ]+ white { return w.join('') } \
+      \
+      punctuation = '.' / '?' / '!' / ',' \
+      word = !amen white? w:[a-zA-Z]+ white? { return w.join('') } \
+      \
+      white = ' '+ \
+      ")
+  }
+  </script>
+</head>
+<body>
+</body>
+</html>
