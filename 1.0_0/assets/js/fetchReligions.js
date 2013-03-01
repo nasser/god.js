@@ -8,10 +8,17 @@
 
 function fetchReligions() {
     /* Should grab any matching github repositories and return them as an array */
-
-    return new Object({
-        1: new Religion("Christianity", "http://www.artfagcity.com/spinnin.js", "http://i.imgur.com/TnBkwAa.gif"),
-        2: new Religion("Islam", "http://www.artfagcity.com/spinnin.js", "http://i.imgur.com/3BbcM5k.gif"),
-        3: new Religion("Judaism", "http://www.artfagcity.com/spinnin.js", "http://i.imgur.com/7QHkVfz.gif")
-    });
+	var religions = new Array();
+	$.getJSON("https://api.github.com/legacy/repos/search/:exalted.book.of", function(data) {
+		$.each(data.repositories, function(repo) {
+			//console.log(data.repositories[repo].owner);
+			var owner = data.repositories[repo].owner;
+			var repo = data.repositories[repo].name;
+			var repoBase = "https://raw.github.com/"+owner+"/"+repo+"/master/";
+			$.getJSON(repoBase+"manifest.json", function(manifest) {
+				religions.push(new Religion(manifest.name, repoBase+manifest.books[0], repoBase+"icon.png"));
+			});
+		});
+	});
+	return religions;
 }
