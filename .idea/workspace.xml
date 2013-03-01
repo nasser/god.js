@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f8b71af9-927a-4dcc-9c1b-71ba1ed5a5c0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/1.0_0/assets/js/fetchReligions.js" afterPath="$PROJECT_DIR$/1.0_0/assets/js/fetchReligions.js" />
-    </list>
+    <list default="true" id="f8b71af9-927a-4dcc-9c1b-71ba1ed5a5c0" name="Default" comment="" />
     <ignored path="god.js.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
