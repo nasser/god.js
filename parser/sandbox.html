@@ -124,7 +124,7 @@
       punctuation = '.' / '?' / '!' / ',' \
       word = !amen white? w:[a-zA-Z]+ white? { return w.join('') } \
       \
-      white = ' '+ \
+      white = ' '+ { return undefined } \
       ")
   }
   </script>
