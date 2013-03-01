@@ -6,6 +6,8 @@
  *
  * Common.js: Universal functions for aspiring deities. Loaded into every tab.
  */
+var divineMessage;
+var divineMessageWrapper;
 
 // Load a wrapper for a divine message.
 if ($("#divine-message-wrapper").length == 0) {
@@ -17,6 +19,10 @@ if ($("#divine-message-wrapper").length == 0) {
     $("body").append(divineMessageWrapper);
 
     divineMessageWrapper.hide();
+
+    divineMessageWrapper.on("click", function() {
+        $(this).hide();
+    })
 }
 
 

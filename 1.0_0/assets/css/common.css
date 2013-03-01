@@ -19,4 +19,8 @@ div#divine-message-wrapper {
     font-family: 'Goudy Bookletter 1911', serif;
     font-size: 3em;
     word-wrap: break-word;
+
+    color: #eee;
+
+    overflow-y: scroll;
 }
