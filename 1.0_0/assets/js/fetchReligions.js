@@ -6,11 +6,17 @@
  * To change this template use File | Settings | File Templates.
  */
 
-function fetchReligions() {
+function fetchReligions(callback) {
     /* Should grab any matching github repositories and return them as an array */
 
+    callback(new Object({
+        1: new Religion("Christianity", "http://beatrixruf.com/cory.js", "http://i.imgur.com/TnBkwAa.gif"),
+        2: new Religion("Islam", "http://www.artfagcity.com/spinnin.js", "http://i.imgur.com/3BbcM5k.gif"),
+        3: new Religion("Judaism", "http://www.artfagcity.com/spinnin.js", "http://i.imgur.com/7QHkVfz.gif")
+    }));
+
     return new Object({
-        1: new Religion("Christianity", "http://www.artfagcity.com/spinnin.js", "http://i.imgur.com/TnBkwAa.gif"),
+        1: new Religion("Christianity", "http://beatrixruf.com/cory.js", "http://i.imgur.com/TnBkwAa.gif"),
         2: new Religion("Islam", "http://www.artfagcity.com/spinnin.js", "http://i.imgur.com/3BbcM5k.gif"),
         3: new Religion("Judaism", "http://www.artfagcity.com/spinnin.js", "http://i.imgur.com/7QHkVfz.gif")
     });
