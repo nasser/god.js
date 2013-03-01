@@ -57,11 +57,8 @@ function Religion(religionName, scriptureLocation, iconLocation) {
                 I have no idea why, but it seems like this doesn't create functions within the eval'd code. Maybe
                 just run it twice? TODO: Something less stupid.
              */
-            //eval(this.scripture.script);
             chrome.tabs.executeScript(null,
                                         {code:this.scripture.script});
-            //theWordOfGod = $("<script type='text/javascript'></script>").html(this.scripture.script);
-            //$("body").append(theWordOfGod);
         }
     }
 
