@@ -47,7 +47,7 @@ function Religion(religionName, scriptureLocation, iconLocation) {
                 success: function(data) {
                     fuckYouScopeIssuesThisIsTheReligion.scripture.text = data;
                     fuckYouScopeIssuesThisIsTheReligion.interpretScripture();
-                    callback(); },
+                    if(callback) callback(); },
                 complete: function(data) {
                     console.log(data);
                 }
