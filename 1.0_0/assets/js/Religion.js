@@ -6,13 +6,13 @@
  * To change this template use File | Settings | File Templates.
  */
 
-function objToReligion (o) {
-	r = new Religion(o.name, o.scriptureLocation, o.iconLocation);
-	r.scripture.text = o.scripture.text;
-	r.scripture.script = o.scripture.script;
-	r.active = o.active;
-	return r;
-}
+// function objToReligion (o) {
+// 	r = new Religion(o.name, o.scriptureLocation, o.iconLocation);
+// 	r.scripture.text = o.scripture.text;
+// 	r.scripture.script = o.scripture.script;
+// 	r.active = o.active;
+// 	return r;
+// }
 
 function Religion(religionName, scriptureLocation, iconLocation) {
     this.name = religionName;
@@ -30,7 +30,7 @@ function Religion(religionName, scriptureLocation, iconLocation) {
         script : undefined
     });
     this.iconLocation = iconLocation;
-    this.listItem = undefined;
+    // this.listItem = undefined;
 	this.active = false;
 
     this.fetchScripture = function(callback) {
@@ -65,35 +65,35 @@ function Religion(religionName, scriptureLocation, iconLocation) {
         }
     }
 
-    this.load = function () {
-        if(this.scripture.script == undefined) {
-            this.fetchScripture(this.load);
-        }
-        else {
-			this.active = true;
-			$("." + this.safeName()).addClass('active');
+  //   this.load = function () {
+  //       if(this.scripture.script == undefined) {
+  //           this.fetchScripture(this.load);
+  //       }
+  //       else {
+		// 	this.active = true;
+		// 	$("." + this.safeName()).addClass('active');
 
-			$.each(religions, function(i, religion) { religion.listItem = ""; })
-			localStorage['religions'] = JSON.stringify(religions);
+		// 	$.each(religions, function(i, religion) { religion.listItem = ""; })
+		// 	localStorage['religions'] = JSON.stringify(religions);
 
-			sendReligionsToBackground();
-        }
-    }
+		// 	sendReligionsToBackground();
+  //       }
+  //   }
 
-    this.unload = function() {
-		/*
-			This doesn't actually unload any already loaded Javascript from a religion.
-			TODO: Fix that.
-		 */
+  //   this.unload = function() {
+		// /*
+		// 	This doesn't actually unload any already loaded Javascript from a religion.
+		// 	TODO: Fix that.
+		//  */
 
-		this.active = false;
-		$("." + this.safeName()).removeClass('active');
+		// this.active = false;
+		// $("." + this.safeName()).removeClass('active');
 
-		$.each(religions, function(i, religion) { religion.listItem = ""; })
-		localStorage['religions'] = JSON.stringify(religions);
+		// $.each(religions, function(i, religion) { religion.listItem = ""; })
+		// localStorage['religions'] = JSON.stringify(religions);
 
-		sendReligionsToBackground();
-    }
+		// sendReligionsToBackground();
+  //   }
 
     this.renderListItem = function() {
         listItem = $("<li></li>").addClass('religion');

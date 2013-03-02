@@ -27,16 +27,26 @@ fetchReligions(function(religion_ary) {
 	})
 });
 
+function setupTab(tabid) {
+	chrome.tabs.executeScript(tabid, { file: "/assets/js/jquery-1.9.1.js" });
+	chrome.tabs.executeScript(tabid, { file: "/assets/js/jquery-ui.js" });
+	chrome.tabs.executeScript(tabid, { file: "/assets/js/lib/rainbow-custom.min.js" });
+	chrome.tabs.executeScript(tabid, { code: '$("body").append("<link href=\'http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911\' rel=\'stylesheet\' type=\'text/css\'>")' });
+	chrome.tabs.insertCSS(tabid, { file: "/assets/css/github.css" });
+	chrome.tabs.insertCSS(tabid,{ file: "/assets/css/common.css" });
+	chrome.tabs.executeScript(tabid, { file: "/assets/js/common.js" });
+}
+
+chrome.tabs.query({}, function(tabs) {
+	tabs.forEach(function(tab) {
+		console.log(tab.title)
+		setupTab(tab.id);
+	});
+});
+
 chrome.tabs.onUpdated.addListener(function(tabid, change) {
 	if(change.url) {
-		chrome.tabs.executeScript(tabid, { file: "/assets/js/jquery-1.9.1.js" });
-		chrome.tabs.executeScript(tabid, { file: "/assets/js/jquery-ui.js" });
-		chrome.tabs.executeScript(tabid, { file: "/assets/js/lib/rainbow-custom.min.js" });
-		chrome.tabs.insertCSS(tabid, { file: "/assets/css/github.css" });
-		chrome.tabs.insertCSS(tabid, { code: '$("body").append("<link href=\'http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911\' rel=\'stylesheet\' type=\'text/css\'>")' });
-		chrome.tabs.insertCSS(tabid,{ file: "/assets/css/common.css" });
-		chrome.tabs.executeScript(tabid, { file: "/assets/js/common.js" });
-		
+		setupTab(tabid);
 		GodJS.injectCode(tabid);
 	}
 });

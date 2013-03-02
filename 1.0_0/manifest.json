@@ -14,7 +14,7 @@
         "default_icon": "icon.png",
         "default_popup": "menu.html"
     },
-    "web_accessible_resources": ["/assets/js/wrapper.js"],
+    "web_accessible_resources": ["/assets/js/wrapper.js", "/assets/js/jquery-1.9.1.js"],
     "content_scripts": [ {
         "matches": ["http://*/*"],
         "js": ["listener.js", "/assets/js/Religion.js", "/assets/js/wrapper.js", "/assets/js/jquery-1.9.1.js"]
@@ -25,4 +25,3 @@
     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self' ",
     "permissions" : [ "tabs","http://*/*", "https://*/*", "tts", "bookmarks"]
 }
-
