@@ -1,13 +1,10 @@
-@import url(http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911);
-
-@font-face
-{
-font-family: Seagram;
-src: url('/assets/fonts/seagram.ttf')
-}
-
+/**
+ * GitHub theme
+ *
+ * @author Craig Campbell
+ * @version 1.0.4
+ */
 pre {
-    font-family: 'Seagram', serif;
     border: 1px solid #ccc;
     word-wrap: break-word;
     padding: 6px 10px;
@@ -23,7 +20,6 @@ code {
 }
 
 pre code {
-    font-family: 'Seagram', serif;
     border: 0px;
     padding: 0px;
     margin: 0px;
@@ -33,6 +29,7 @@ pre code {
 }
 
 pre, code {
+    font-family: Consolas, 'Liberation Mono', Courier, monospace;
     color: #333;
     background: #f8f8f8;
     -moz-border-radius: 3px;
