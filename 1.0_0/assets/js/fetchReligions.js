@@ -10,6 +10,8 @@ var __religions_waiting = 0;
 var __religions = new Array();
 
 function fetchReligions(callback) {
+	__religions = new Array();
+	
 	$.getJSON("https://api.github.com/legacy/repos/search/:exalted.book.of", function(data) {
 		__religions_waiting =data.repositories.length;
 		$.each(data.repositories, function(repo) {
