@@ -57,4 +57,8 @@ li.religion span {
     cursor: pointer;
 }
 
+li.active span {
+    background-color: #F00;
+}
+
 

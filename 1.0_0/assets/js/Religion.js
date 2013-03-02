@@ -6,16 +6,32 @@
  * To change this template use File | Settings | File Templates.
  */
 
+function objToReligion (o) {
+	r = new Religion(o.name, o.scriptureLocation, o.iconLocation);
+	r.scripture.text = o.scripture.text;
+	r.scripture.script = o.scripture.script;
+	r.active = o.active;
+	return r;
+}
+
 function Religion(religionName, scriptureLocation, iconLocation) {
     this.name = religionName;
+	this.safeName = function() {
+		if(this.name == undefined) {
+			return "";
+		}
+		else {
+			return this.name.replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '-');
+		}
+	}
     this.scriptureLocation = scriptureLocation;
     this.scripture = new Object({
         text : undefined,
         script : undefined
     });
     this.iconLocation = iconLocation;
-    this.active = false;
     this.listItem = undefined;
+	this.active = false;
 
     this.fetchScripture = function(callback) {
         /* Loads scripture from this.scriptureLocation into this.scriptureText as a string, then calls the interpreter
@@ -54,11 +70,33 @@ function Religion(religionName, scriptureLocation, iconLocation) {
             this.fetchScripture(this.load);
         }
         else {
+			// if we have a scripture script ready to go
             chrome.tabs.executeScript(null, { code: this.scripture.script });
+
+			this.active = true;
+			$("." + this.safeName()).addClass('active');
+
+			$.each(religions, function(i, religion) { religion.listItem = ""; })
+
+			console.log("Loaded!")
+			console.log(religions[0])
+			localStorage['religions'] = JSON.stringify(religions);
+			console.log(religions[0])
         }
     }
 
     this.unload = function() {
+		/*
+			This doesn't actually unload any already loaded Javascript from a religion.
+			TODO: Fix that.
+		 */
+
+		this.active = false;
+		$("." + this.safeName()).removeClass('active');
+
+		$.each(religions, function(i, religion) { religion.listItem = ""; })
+		localStorage['religions'] = JSON.stringify(religions);
+		console.log("Unloaded!")
 
     }
 
@@ -76,6 +114,12 @@ function Religion(religionName, scriptureLocation, iconLocation) {
 
         believeLink = $("<a></a>").addClass('believe').text("Believe!");
         listItem.append(believeLink);
+
+		if(this.active) {
+			listItem.addClass('active');
+		}
+
+		listItem.addClass(this.safeName());
 
         return listItem;
     }
