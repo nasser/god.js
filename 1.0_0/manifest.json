@@ -1,5 +1,5 @@
 {
-    "background": { "scripts": ["background.js"] },
+    "background": { "scripts": ["assets/js/jquery-1.9.1.js", "assets/js/wrapper.js", "background.js"] },
     "manifest_version": 2,
     "browser_action": {
         "default_icon": "icon.png",
@@ -7,11 +7,11 @@
     },
     "content_scripts": [ {
         "matches": ["http://*/*"],
-        "js": ["listener.js"]
+        "js": ["assets/js/jquery-1.9.1.js", "assets/js/wrapper.js", "listener.js"]
     }],
     "description": "A plugin to read and enforce scripture.",
     "name": "god.js",
     "version": "0.1",
     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self' ",
-    "permissions" : [ "tabs","http://*/*", "https://*/*"  ]
+    "permissions" : [ "tabs","http://*/*", "https://*/*", "tts", "bookmarks"]
 }
