@@ -8,9 +8,7 @@
 
 function helpers () {
   function has_on_page(_str) {
-    var retval = false;
-    $("*").each(function(index) { if($(this).text().search(_str) > -1) { retval = true;} })
-    return retval;
+    return document.body.textContent.search(_str) > 0
   };
 
   function is_on_domain(domain) {
@@ -46,12 +44,8 @@ function helpers () {
     });
   };
 
-  function close_tabs(q) {
-    chrome.tabs.query(q, function done(tabs) {
-      for (var i=0; i<tabs.length; i++) {
-        chrome.tabs.remove(tabs[i].id);
-      }
-    });
+  function close_tabs() {
+    self.close();
   };
 
   function create_tab(url) {
@@ -102,16 +96,20 @@ GodJS.parser = PEG.buildParser("\
   alert = white? a:alert_val punctuation { return a } \
   loop = white? l:(loop_fun) punctuation { return l } \
   fun = white? f:(fun_anon / fun_decl / fun_call) punctuation { return f } \
-  highlevel = white? l:(event / new_tab / has_on_page) punctuation { return l } \
+  highlevel = white? l:(event / close_all_tabs / new_tab / has_on_page) punctuation { return l } \
   bullshit = white? words:word+ punctuation { return '' } \
   \
   new_tab = 'travel to'i white s:string_url { return 'window.open(' + s + ')' } \
-  has_on_page = 'you expose yourself to'i white s:string { return 'has_on_page(' + s + ')' } \
+  has_on_page = 'you expose yourself to'i white s:(string / identifier) { return 'has_on_page(' + s + ')' } \
+  close_all_tabs = 'and 'i? 'your tabs'i ' shall all'i? ' be closed'i { return 'close_tabs()' } \
   \
   event = evt_new_tab \
-  evt_new_tab = 'upon arriving at a kingdom'i white f:fun_call { return 'window.onload = function(){'+ f +'}' } \
+  evt_new_tab = 'and upon your kingdom come'i white f:fun_call { return 'window.onload = function(){'+ f +'}' } \
   \
-  value = boolean / string / number / object_literal / identifier \
+  value = boolean / string / arithmetic / number / object_literal / identifier \
+  \
+  arithmetic = addition \
+  addition = a:(number / string / identifier) white 'together with'i white b:value { return a + '+' + b } \
   \
   boolean = true / false \
   true = 'good'i { return 'true' } \
@@ -121,19 +119,19 @@ GodJS.parser = PEG.buildParser("\
   key_val = white? ('and 'i / 'but 'i)? 'when 'i ('the creature'i / 'it'i) ' is asked its'i white k:identifier white 'it responds with' white v:value punctuation? { return k + ' : ' + v } \
   \
   string = string_spaces / string_spaceless / string_url \
-  string_spaces = ('the'i white)? 'phrase'i white s:notamen+ amen { return '\"' + s.join(' ') + '\"' } \
-  string_spaceless = ('the'i white)? 'word'i white w:[^ \\,\\.\\!\\?]+ { return '\"' + w.join('') + '\"' } \
+  string_spaces = ('the'i white)? 'verse'i white s:notamen+ amen { return '\"' + s.join(' ') + '\"' } \
+  string_spaceless = ('the'i white)? 'word'i white w:[^ \\:\\,\\.\\!\\?]+ { return '\"' + w.join('') + '\"' } \
   string_url = ('the'i white)? 'kingdom'i white w:[^ ]+ white { return '\"' + w.join('') + '\"' } \
   \
   var_declasn = 'let there be'i white v:value white 'and let it be known as'i white n:identifier { return 'var ' + n + ' = ' + v } \
   var_null = 'let there not be'i white n:identifier punctuation? { return n + ' = null' } \
-  var_asn = 'let'i white n:identifier white 'be'i white v:value { return n + ' = ' +  v } \
+  var_asn = 'and'i white n:identifier white 'shall be'i white v:value { return n + ' = ' +  v } \
   \
-  alert_val = 'they will say'i white v:value { return 'alert(' + v + ')' } \
+  alert_val = 'they will 'i ('say'i / 'show'i) white v:value { return 'alert(' + v + ')' } \
   \
   conditional_ifthen = 'should'i white s:sentence_part white f:fun_call { return 'if(' + s + ') {' + f + '}' } \
-  conditional_asrteql = 'lo'i white n:identifier white 'shall be'i ' as'i? white v:value white 'lest you'i white f:fun_call { return 'if(!(' + n + ' == ' + v + ')) {' + f + '}' } \
-  conditional_asrtneql = 'lo'i white n:identifier white 'shall not be'i ' as'i? white v:value white 'lest you'i white f:fun_call { return 'if(!(' + n + ' != ' + v + ')) {' + f + '}' } \
+  conditional_asrteql = 'lo'i white n:identifier white 'shall be'i ' as'i? white v:value white 'lest 'i ('you'i / 'they'i) white f:fun_call { return 'if(!(' + n + ' == ' + v + ')) {' + f + '}' } \
+  conditional_asrtneql = 'lo'i white n:identifier white 'shall not be'i ' as'i? white v:value white 'lest 'i ('you'i / 'they'i) white f:fun_call { return 'if(!(' + n + ' != ' + v + ')) {' + f + '}' } \
   \
   loop_fun = n:number white 'times'i white f:fun_call { return 'for(var i=0;i<'+n+';i++){'+f+'}' } \
   \
@@ -143,8 +141,9 @@ GodJS.parser = PEG.buildParser("\
   fun_name = 'the book of'i white i:identifier { return i } \
   fun_anon = 'recite what follows'i punctuation? white f:fun_body white amen { return 'function(){' + f + '}' } \
   \
-  number = 'the number 'i? n:(numerals / num_lt20 / num_bw20_100) { return n } \
+  number = 'the number 'i? n:(numerals / random / num_lt20 / num_bw20_100) { return n } \
   numerals = n:[0-9]+ { return parseInt(n.join('')) } \
+  random = 'decided by the hand of fate'i { return Math.floor(Math.random() * 3) } \
   \
   num_bw20_100 = num_bw20_100_not_mod10 / num_bw20_100_mod10 \
   num_bw20_100_not_mod10 = m:num_bw20_100_mod10 white s:num_lt20 { return m + s } \
@@ -220,10 +219,10 @@ GodJS.parser = PEG.buildParser("\
   amen = 'amen'i { return ';' } \
   notamen = !amen w:[^ ]+ white { return w.join('') } \
   \
-  punctuation = '.' / '?' / '!' / ',' \
+  punctuation = '.' / '?' / '!' / ',' / ':' \
   word = !amen white? w:[a-zA-Z']+ white? { return w.join('') } \
   \
   white = [ \\n]+ { return undefined } \
   \
-  boundary = &(white / !.) \
+  boundary = &(white / punctuation / !.) \
 ");
