@@ -1,5 +1,9 @@
 var GodJS = {
   religions: [],
+  injectCode: function(tabid) {
+    chrome.tabs.executeScript(tabid, { code: GodJS.codeToInject() });
+  },
+
   codeToInject: function() {
     var code = "var s = document.createElement('script');\
     s.src = chrome.extension.getURL(\"assets/js/wrapper.js\"); \
@@ -10,7 +14,6 @@ var GodJS = {
     "
 
     GodJS.religions.forEach(function(religion) {
-      console.log(religion.name + ": " + religion.active);
       if(religion.active && religion.scripture.script) {
         code += religion.scripture.script;
       }
