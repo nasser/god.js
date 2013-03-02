@@ -37,11 +37,14 @@
       fun = white? f:(fun_anon / fun_decl / fun_call) punctuation { return f + ';' } \
       bullshit = white? words:word+ punctuation { return '// ' + words.join(' ') } \
       \
-      value = boolean / string / number / fun_name \
+      value = boolean / string / number / object_literal / identifier \
       \
       boolean = true / false \
       true = 'good'i { return 'true' } \
       false = 'evil'i { return 'false' } \
+      \
+      object_literal = 'a creature'i first:key_val rest:(white key_val)* white amen { return '{' + [first].concat(rest).flatten().clean().join(', ') + '}' } \
+      key_val = white? ('and 'i / 'but 'i)? 'when 'i ('the creature'i / 'it'i) ' is asked its'i white k:identifier white 'it responds with' white v:value punctuation? { return k + ' : ' + v } \
       \
       string = string_spaces / string_spaceless \
       string_spaces = ('the'i white)? 'phrase'i white s:notamen+ amen { return '\"' + s.join(' ') + '\"' } \
