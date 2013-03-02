@@ -26,7 +26,7 @@
 
   var God = {
     parser: PEG.buildParser("\
-      start = s:sentence* { return s.join('') } \
+	start = vardef / varnull / varassign / alert \
       \
       sentence = scriptofjava / bullshit \
       scriptofjava = white? 'as it was said in the script of java 'i code:notamen+ amen punctuation  { return code.join(' ') + ';' } \
@@ -36,6 +36,14 @@
       string_spaces = ('the'i white)? 'verse'i white s:notamen+ amen { return '\"' + s.join(' ') + '\"' } \
       string_spaceless = ('the'i white)? 'word'i white w:[^ ]+ { return '\"' + w.join('') + '\"' } \
       \
+      vardef = vardef_string \
+      vardef_string = 'let there be'i white s:string white 'and let it be known as'i white n:[a-zA-Z0-9]+ punctuation? { return 'var '+n.join('')+' = '+s } \
+      varnull = 'let there not be'i white n:[a-zA-Z0-9]+ punctuation? { return n.join('')+' = null' } \
+      varassign = 'let'i white n:[a-zA-Z0-9]+ white 'be'i white s:string { return n.join('')+' = '+s } \
+	\
+      alert = alert_literal / alert_var \
+      alert_literal = 'and they will say'i white s:string { return 'alert('+s+')' } \
+      alert_var = 'and they will say the'i white n:[a-zA-Z0-9]+ { return 'alert('+n.join('')+')' } \
       number = n:small_num white m:magnitude { return n * m } \
       \
       number_lthundred = number_twenty_hundred / small_num \
