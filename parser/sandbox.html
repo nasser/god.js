@@ -67,7 +67,7 @@
       fun_name = 'the book of'i white i:identifier { return i } \
       fun_anon = 'recite what follows'i punctuation? white f:fun_body white amen { return 'function(){' + f + '}' } \
       \
-      number = numerals / num_lt20 / num_bw20_100 \
+      number = 'the number 'i? n:(numerals / num_lt20 / num_bw20_100) { return n } \
       numerals = n:[0-9]+ { return parseInt(n.join('')) } \
       \
       num_bw20_100 = num_bw20_100_not_mod10 / num_bw20_100_mod10 \
