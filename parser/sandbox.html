@@ -40,21 +40,36 @@
       vardef_string = 'let there be'i white s:string white 'and let it be known as'i white n:[a-zA-Z0-9]+ punctuation? { return 'var '+n.join('')+' = '+s } \
       varnull = 'let there not be'i white n:[a-zA-Z0-9]+ punctuation? { return n.join('')+' = null' } \
       varassign = 'let'i white n:[a-zA-Z0-9]+ white 'be'i white s:string { return n.join('')+' = '+s } \
-	\
+      \
+      conditional = conditional1 \
+      conditional1 = n:[a-zA-Z0-9]+ white 'shall be'i white s:string white 'lest'i white a:alert { return 'if(!('+n.join('')+' == '+s+')) {'+a+'}' } \
+      \
       alert = alert_literal / alert_var \
       alert_literal = 'they will say'i white s:string { return 'alert('+s+')' } \
-      alert_var = 'they will say the'i white n:[a-zA-Z0-9]+ { return 'alert('+n.join('')+')' } \
-      number = n:small_num white m:magnitude { return n * m } \
+      alert_var = 'they will say the'i white n:[a-zA-Z0-9]+{ return 'alert('+n.join('')+')' } \
       \
       conditional = conditional1 / conditional2 \
       conditional1 = n:[a-zA-Z0-9]+ white 'shall be'i white s:string white 'lest'i white a:alert { return 'if(!('+n.join('')+' == '+s+')) {'+a+'}' } \
       conditional2 = n:[a-zA-Z0-9]+ white 'shall not be'i white s:string white 'lest'i white a:alert { return 'if(!('+n.join('')+' != '+s+')) {'+a+'}' } \
       \
-      loop = white? a:alert white 'five times'i { return 'for(var i=0;i < 5;i++){'+a+'}' } \
-      number_lthundred = number_twenty_hundred / small_num \
-      number_twenty_hundred = m:medium_num white s:small_num { return m + s } \
+      loop = a:alert n:number white 'times'i { return 'for(var i=0;i < '+n+';i++){'+a+'}' } \
+      number = num_gt100_not_mod100 / num_gt100_mod100 / num_lt20 / num_bw20_100 \
       \
-      small_num = \
+      num_bw20_100 = num_bw20_100_not_mod10 / num_bw20_100_mod10 \
+      num_bw20_100_not_mod10 = m:num_bw20_100_mod10 white s:num_lt20 { return m + s } \
+      \
+      num_gt100_mod100 = n:num_lt20 white m:magnitude { return n * m } \
+      num_gt100_not_mod100 = n:num_lt20 white m:magnitude white 'and'i white s:(num_lt20 / num_bw20_100) { return n * m + s } \
+      \
+      num_lt20 = \
+        n:( \
+        thirteen_lit / \
+        fourteen_lit / \
+        fifteen_lit / \
+        sixteen_lit / \
+        seventeen_lit / \
+        eighteen_lit / \
+        nineteen_lit / \
         zero_lit / \
         one_lit / \
         two_lit / \
@@ -68,25 +83,19 @@
         ten_lit / \
         eleven_lit / \
         twelve_lit / \
-        thirteen_lit / \
-        fourteen_lit / \
-        fifteen_lit / \
-        sixteen_lit / \
-        seventeen_lit / \
-        eighteen_lit / \
-        nineteen_lit \
+        ) boundary { return n } \
       \
-      medium_num = \
-        twenty_lit / \
+      num_bw20_100_mod10 = \
+        n:( twenty_lit / \
         thirty_lit / \
         forty_lit / \
         fifty_lit / \
-        ninety_lit / \
-        eighty_lit / \
-        seventy_lit / \
         sixty_lit / \
+        seventy_lit / \
+        eighty_lit / \
+        ninety_lit ) boundary { return n } \
       \
-      magnitude = first:magnitude_lit rest:(white magnitude_lit)* { return [first].concat(rest.flatten()).clean().reduce(function(prev, cur, i, ary) { return prev * cur; }) } \
+      magnitude = magnitude_lit \
       magnitude_lit = hundred_lit / thousand_lit / million_lit / billion_lit / trillion_lit / quadrillion_lit / quintillion_lit / sextillion_lit / septillion_lit / octillion_lit / nonillion_lit / decillion_lit / \
       \
       zero_lit = 'zero'i { return 0 } \
@@ -138,6 +147,8 @@
       word = !amen white? w:[a-zA-Z]+ white? { return w.join('') } \
       \
       white = ' '+ { return undefined } \
+      \
+      boundary = &(white / !.) \
       ")
   }
   </script>
