@@ -56,8 +56,8 @@
       \
       alert_val = 'they will say'i white v:value { return 'alert(' + v + ')' } \
       \
-      conditional_asrteql = 'lo'i white n:identifier white 'shall be'i white v:value white 'lest'i white a:alert { return 'if(!(' + n + ' == ' + v + ')) {'+a+'}' } \
-      conditional_asrtneql = 'lo'i white n:identifier white 'shall not be'i white v:value white 'lest'i white a:alert { return 'if(!(' + n + ' != ' + v + ')) {'+a+'}' } \
+      conditional_asrteql = 'lo'i white n:identifier white 'shall be'i ' as'i? white v:value white 'lest you'i white f:fun_call { return 'if(!(' + n + ' == ' + v + ')) {' + f + '}' } \
+      conditional_asrtneql = 'lo'i white n:identifier white 'shall not be'i ' as'i? white v:value white 'lest you'i white f:fun_call { return 'if(!(' + n + ' != ' + v + ')) {' + f + '}' } \
       \
       loop_fun = n:number white 'times'i white f:fun_call { return 'for(var i=0;i<'+n+';i++){'+f+'}' } \
       \
