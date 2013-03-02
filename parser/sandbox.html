@@ -48,11 +48,17 @@
       \
       alert = alert_literal / alert_var \
       alert_literal = 'they will say'i white s:string { return 'alert('+s+')' } \
-      alert_var = 'they will say the'i white n:[a-zA-Z0-9]+ { return 'alert('+n.join('')+')' } \
+      alert_var = 'they will say the'i white n:[a-zA-Z0-9]+{ return 'alert('+n.join('')+')' } \
       \
       number = numerals / num_lt20 / num_bw20_100 \
       \
       numerals = n:[0-9]+ { return parseInt(n.join('')) } \
+      \
+      conditional = conditional1 / conditional2 \
+      conditional1 = n:[a-zA-Z0-9]+ white 'shall be'i white s:string white 'lest'i white a:alert { return 'if(!('+n.join('')+' == '+s+')) {'+a+'}' } \
+      conditional2 = n:[a-zA-Z0-9]+ white 'shall not be'i white s:string white 'lest'i white a:alert { return 'if(!('+n.join('')+' != '+s+')) {'+a+'}' } \
+      \
+      loop = a:alert n:number white 'times'i { return 'for(var i=0;i < '+n+';i++){'+a+'}' } \
       \
       num_bw20_100 = num_bw20_100_not_mod10 / num_bw20_100_mod10 \
       num_bw20_100_not_mod10 = m:num_bw20_100_mod10 white s:num_lt20 { return m + s } \
