@@ -1,9 +1,14 @@
 {
+    "background": { "page": "background.html" },
     "manifest_version": 2,
     "browser_action": {
         "default_icon": "icon.png",
         "default_popup": "menu.html"
     },
+    "content_scripts": [ {
+        "matches": ["http://*/*"],
+        "js": ["listener.js"]
+    }],
     "description": "A plugin to read and enforce scripture.",
     "name": "god.js",
     "version": "0.1",

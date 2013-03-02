@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8b71af9-927a-4dcc-9c1b-71ba1ed5a5c0" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Will\Desktop\Web Development\god.js\1.0_0\assets\js\lib\webfonts.js" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/1.0_0/background.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/1.0_0/listener.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/1.0_0/assets/css/menu.css" afterPath="$PROJECT_DIR$/1.0_0/assets/css/menu.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/1.0_0/assets/js/Religion.js" afterPath="$PROJECT_DIR$/1.0_0/assets/js/Religion.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/1.0_0/assets/js/menu.js" afterPath="$PROJECT_DIR$/1.0_0/assets/js/menu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/1.0_0/assets/js/webfonts.js" afterPath="$PROJECT_DIR$/1.0_0/assets/js/webfonts.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/1.0_0/manifest.json" afterPath="$PROJECT_DIR$/1.0_0/manifest.json" />
     </list>
     <ignored path="god.js.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,33 +44,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/1.0_0/assets/js/common.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="23" selection-start="700" selection-end="700" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fetchReligions.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/1.0_0/assets/js/fetchReligions.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="46" selection-start="871" selection-end="871" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="spinnin.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-18/spinnin.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="3" selection-start="482" selection-end="482" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Religion.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/1.0_0/assets/js/Religion.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -81,19 +53,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/1.0_0/assets/js/menu.js">
+      <file leaf-file-name="manifest.json" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/1.0_0/manifest.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="87" selection-start="1541" selection-end="1541" vertical-scroll-proportion="0.7325228">
+            <state line="7" column="26" selection-start="208" selection-end="208" vertical-scroll-proportion="0.32425067">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/1.0_0/menu.html">
+      <file leaf-file-name="background.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/1.0_0/background.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="6" selection-start="241" selection-end="241" vertical-scroll-proportion="-4.1923075">
+            <state line="22" column="0" selection-start="531" selection-end="531" vertical-scroll-proportion="-6.5384617">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="listener.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/1.0_0/listener.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="0" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#156#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menu.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/1.0_0/assets/js/menu.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="77" column="32" selection-start="2413" selection-end="2413" vertical-scroll-proportion="-2.96">
               <folding />
             </state>
           </provider>
@@ -112,7 +104,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/1.0_0/manifest.json" />
         <option value="$PROJECT_DIR$/1.0_0/menu.html" />
         <option value="$PROJECT_DIR$/1.0_0/assets/js/webfonts.js" />
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-18/spinnin.js" />
@@ -123,7 +114,11 @@
         <option value="$PROJECT_DIR$/1.0_0/assets/js/fetchReligions.js" />
         <option value="$PROJECT_DIR$/1.0_0/assets/css/menu.css" />
         <option value="$PROJECT_DIR$/1.0_0/assets/js/Religion.js" />
+        <option value="$USER_HOME$/AppData/Local/Google/Chrome/User Data/Default/Extensions/hohkcfiapflpfbfpjeahdfbmhpmbhcod/1.4_0/manifest.json" />
+        <option value="$PROJECT_DIR$/1.0_0/manifest.json" />
         <option value="$PROJECT_DIR$/1.0_0/assets/js/menu.js" />
+        <option value="$PROJECT_DIR$/1.0_0/background.html" />
+        <option value="$PROJECT_DIR$/1.0_0/listener.js" />
       </list>
     </option>
   </component>
@@ -270,6 +265,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="options.lastSelected" value="preferences.sourceCode.JavaScript" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
   </component>
@@ -298,6 +294,13 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -347,7 +350,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -422,41 +425,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/1.0_0/assets/js/interpretScripture.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1.0_0/manifest.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="23" selection-start="25" selection-end="25" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1.0_0/assets/css/github.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="76" selection-end="76" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1.0_0/menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="6" selection-start="241" selection-end="241" vertical-scroll-proportion="-4.1923075">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/HTML5.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1273" column="14" selection-start="22639" selection-end="22639" vertical-scroll-proportion="0.7723343">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/1.0_0/assets/js/webfonts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="2" selection-start="78" selection-end="78" vertical-scroll-proportion="0.09264305">
@@ -499,6 +467,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../Plugin Project/1.0_0/manifest.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Plugin Project/1.0_0/affiliater.user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.3623978">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Google/Chrome/User Data/Default/Extensions/hohkcfiapflpfbfpjeahdfbmhpmbhcod/1.4_0/background.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="36" selection-start="0" selection-end="947" vertical-scroll-proportion="0.13707165">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Google/Chrome/User Data/Default/Extensions/hohkcfiapflpfbfpjeahdfbmhpmbhcod/1.4_0/shaved-bieber.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1362195811225" expanded="false" signature="2181:2213" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1.0_0/assets/js/menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="32" selection-start="2413" selection-end="2413" vertical-scroll-proportion="-2.96">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1.0_0/listener.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#156#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1.0_0/background.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="531" selection-end="531" vertical-scroll-proportion="-6.5384617">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Google/Chrome/User Data/Default/Extensions/hohkcfiapflpfbfpjeahdfbmhpmbhcod/1.4_0/manifest.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="1" selection-start="615" selection-end="615" vertical-scroll-proportion="0.720339">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/1.0_0/assets/js/Religion.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="92" column="0" selection-start="2841" selection-end="2841" vertical-scroll-proportion="0.0">
@@ -506,9 +534,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/1.0_0/assets/js/menu.js">
+    <entry file="file://$PROJECT_DIR$/1.0_0/manifest.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="87" selection-start="1541" selection-end="1541" vertical-scroll-proportion="0.7325228">
+        <state line="7" column="26" selection-start="208" selection-end="208" vertical-scroll-proportion="0.32425067">
           <folding />
         </state>
       </provider>
