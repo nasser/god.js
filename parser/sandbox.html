@@ -63,7 +63,7 @@
       \
       fun_decl = 'it is said in the book of'i white i:identifier punctuation white f:fun_body white amen { return 'function ' + i + ' {\\n' + f + '\\n}' } \
       fun_body = s:sentence* { return s.join('\\n') } \
-      fun_call = 'now, 'i? 'recite'i ' the'i? white i:identifier { return i + '()' } \
+      fun_call = 'now, 'i? 'recite'i ' the book of'i? white i:identifier { return i + '()' } \
       fun_name = 'the book of'i white i:identifier { return i } \
       fun_anon = 'recite what follows'i punctuation? white f:fun_body white amen { return 'function(){' + f + '}' } \
       \
