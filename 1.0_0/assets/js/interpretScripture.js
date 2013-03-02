@@ -9,7 +9,7 @@
 function interpretScripture(scriptureText) {
     /* Interprets scriptureText (godscript string) and returns javascript */
 
-    return GodJS.parser.parse(scriptureText);
+    return GodJS.parser.parse(scriptureText.trim());
 }
 
 // http://tech.karbassi.com/2009/12/17/pure-javascript-flatten-array/
