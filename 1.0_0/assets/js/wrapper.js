@@ -1,4 +1,28 @@
-var Wrapper = {
+var Cleric = {
+	religions: [],
+
+	eventDispatch: {},
+
+	on: function(event, fn) {
+		if(this.eventDispatch[event] == undefined)
+			this.eventDispatch[event] = [];
+		this.eventDispatch[event].push(fn);
+	},
+
+	dispatch: function(event) {
+		if(this.eventDispatch[event] == undefined) return;
+		this.eventDispatch[event].forEach(function(fn) {
+			fn();
+		});
+	},
+
+	reset: function() {
+		this.religions = [];
+		this.eventDispatch = {};
+	},
+
+	// events
+	// wrappers
 	has_on_page: function(_str) {
 		var retval = false;
 		$("div").each(function(index) { if($(this).text().search(_str) > -1) { retval = true;} })
