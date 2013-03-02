@@ -50,13 +50,12 @@
       alert_literal = 'they will say'i white s:string { return 'alert('+s+')' } \
       alert_var = 'they will say the'i white n:[a-zA-Z0-9]+ { return 'alert('+n.join('')+')' } \
       \
-      number = num_gt100_not_mod100 / num_gt100_mod100 / num_lt20 / num_bw20_100 \
+      number = numerals / num_lt20 / num_bw20_100 \
+      \
+      numerals = n:[0-9]+ { return parseInt(n.join('')) } \
       \
       num_bw20_100 = num_bw20_100_not_mod10 / num_bw20_100_mod10 \
       num_bw20_100_not_mod10 = m:num_bw20_100_mod10 white s:num_lt20 { return m + s } \
-      \
-      num_gt100_mod100 = n:num_lt20 white m:magnitude { return n * m } \
-      num_gt100_not_mod100 = n:num_lt20 white m:magnitude white 'and'i white s:(num_lt20 / num_bw20_100) { return n * m + s } \
       \
       num_lt20 = \
         n:( \
@@ -92,9 +91,6 @@
         eighty_lit / \
         ninety_lit ) boundary { return n } \
       \
-      magnitude = magnitude_lit \
-      magnitude_lit = hundred_lit / thousand_lit / million_lit / billion_lit / trillion_lit / quadrillion_lit / quintillion_lit / sextillion_lit / septillion_lit / octillion_lit / nonillion_lit / decillion_lit / \
-      \
       zero_lit = 'zero'i { return 0 } \
       one_lit = 'one'i { return 1 } \
       two_lit = 'two'i { return 2 } \
@@ -123,19 +119,6 @@
       seventy_lit = 'seventy'i { return 70 } \
       eighty_lit = 'eighty'i { return 80 } \
       ninety_lit = 'ninety'i { return 90 } \
-      \
-      hundred_lit = 'hundred'i { return 100 } \
-      thousand_lit = 'thousand'i { return 1000 } \
-      million_lit = 'million'i { return 1000000 } \
-      billion_lit = 'billion'i { return 1000000000 } \
-      trillion_lit = 'trillion'i { return 1000000000000 } \
-      quadrillion_lit = 'quadrillion'i { return 1000000000000000 } \
-      quintillion_lit = 'quintillion'i { return 1000000000000000000 } \
-      sextillion_lit = 'sextillion'i { return 1000000000000000000000 } \
-      septillion_lit = 'septillion'i { return 1000000000000000000000000 } \
-      octillion_lit = 'octillion'i { return 1000000000000000000000000000 } \
-      nonillion_lit = 'nonillion'i { return 1000000000000000000000000000000 } \
-      decillion_lit = 'decillion'i { return 1000000000000000000000000000000000 } \
       \
       amen = 'amen'i { return ';' } \
       notamen = !amen w:[^ ]+ white { return w.join('') } \
