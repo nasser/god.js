@@ -70,18 +70,13 @@ function Religion(religionName, scriptureLocation, iconLocation) {
             this.fetchScripture(this.load);
         }
         else {
-			// if we have a scripture script ready to go
-            chrome.tabs.executeScript(null, { code: this.scripture.script });
-
 			this.active = true;
 			$("." + this.safeName()).addClass('active');
 
 			$.each(religions, function(i, religion) { religion.listItem = ""; })
-
-			console.log("Loaded!")
-			console.log(religions[0])
 			localStorage['religions'] = JSON.stringify(religions);
-			console.log(religions[0])
+
+			sendReligionsToBackground();
         }
     }
 
@@ -96,8 +91,8 @@ function Religion(religionName, scriptureLocation, iconLocation) {
 
 		$.each(religions, function(i, religion) { religion.listItem = ""; })
 		localStorage['religions'] = JSON.stringify(religions);
-		console.log("Unloaded!")
 
+		sendReligionsToBackground();
     }
 
     this.renderListItem = function() {

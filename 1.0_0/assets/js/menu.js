@@ -8,7 +8,7 @@
 
 var religions = new Array();
 
-if(typeof(localStorage['religions']) == "string") {
+if(typeof(localStorage['religions']) == "string" && localStorage['religions'].length > 10 ) {
 	religions = undefined;
 	religions = new Array();
 	religionsJSON = $.parseJSON(localStorage['religions']);
@@ -73,10 +73,27 @@ function religionsReady (religion_list) {
 	});
 }
 
-var port = chrome.extension.connect({name: "Sample Communication"});
-port.postMessage("Hi BackGround");
-port.onMessage.addListener(function(msg) {
-	console.log("message recieved"+ msg);
-});
 
+function sendMessage(messageName, content) {
+	var port = chrome.extension.connect({name: "Sample Communication"});
+	var msg = new Object();
+	msg.name = messageName;
+	msg.content = content;
+	port.postMessage(JSON.stringify(msg));
+	port.onMessage.addListener(function(msg) {
+		console.log("message recieved"+ msg);
+	});
+}
 
+function sendReligionsToBackground() {
+	var activeReligions = new Array();
+
+	$.each(religions, function(i, religion) {
+		religion.listItem = "";
+		if(religion.active) {
+			activeReligions.push(religion);
+		}
+	})
+
+	sendMessage("active", JSON.stringify(activeReligions));
+}
