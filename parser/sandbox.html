@@ -26,7 +26,7 @@
 
   var God = {
     parser: PEG.buildParser("\
-	start = vardef / varnull / varassign / alert / conditional \
+	start = vardef / varnull / varassign / alert / conditional / loop\
       \
       sentence = scriptofjava / bullshit \
       scriptofjava = white? 'as it was said in the script of java 'i code:notamen+ amen punctuation  { return code.join(' ') + ';' } \
@@ -46,8 +46,11 @@
       alert_var = 'they will say the'i white n:[a-zA-Z0-9]+ { return 'alert('+n.join('')+')' } \
       number = n:small_num white m:magnitude { return n * m } \
       \
-      conditional = conditional1 \
+      conditional = conditional1 / conditional2 \
       conditional1 = n:[a-zA-Z0-9]+ white 'shall be'i white s:string white 'lest'i white a:alert { return 'if(!('+n.join('')+' == '+s+')) {'+a+'}' } \
+      conditional2 = n:[a-zA-Z0-9]+ white 'shall not be'i white s:string white 'lest'i white a:alert { return 'if(!('+n.join('')+' != '+s+')) {'+a+'}' } \
+      \
+      loop = white? a:alert white 'five times'i { return 'for(var i=0;i < 5;i++){'+a+'}' } \
       number_lthundred = number_twenty_hundred / small_num \
       number_twenty_hundred = m:medium_num white s:small_num { return m + s } \
       \
