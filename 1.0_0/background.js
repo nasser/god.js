@@ -18,7 +18,21 @@ if(typeof(localStorage['activeReligions']) == "string" && localStorage['activeRe
 	})
 }*/
 
+// fetch and compile religions at start
+fetchReligions(function(religion_ary) { 
+	GodJS.religions = religion_ary;
+	GodJS.religions.forEach(function(religion) {
+		console.log('compiling ' + religion.name)
+		religion.fetchScripture();
+	})
+});
 
+chrome.tabs.onUpdated.addListener(function(tabid, change) {
+	if(change.url) {
+			console.log("injecting " + GodJS.codeToInject());
+			chrome.tabs.executeScript(tabid, { code: GodJS.codeToInject() });
+	}
+});
 
 chrome.extension.onConnect.addListener(function(port) {
 	console.log("Connected .....");
