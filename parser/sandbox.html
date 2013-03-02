@@ -26,39 +26,46 @@
 
   var God = {
     parser: PEG.buildParser("\
-    	start = s:sentence* { return s.join('') } \
+    	start = fun_body \
       \
-      sentence = scriptofjava / bullshit \
-      scriptofjava = white? 'as it was said in the script of java 'i code:notamen+ amen punctuation  { return code.join(' ') + ';' } \
-      bullshit = white? words:word+ punctuation { return '// ' + words.join(' ') + '\\n' } \
+      sentence = scriptofjava / alert / loop / fun / var / conditional \
+      scriptofjava = white? 'it is said in the script of java 'i code:notamen+ amen punctuation  { return code.join(' ') + ';' } \
+      var = white? v:(var_null / var_declasn / var_asn) punctuation { return v + ';' } \
+      conditional = white? c:(conditional_asrteql / conditional_asrtneql) punctuation { return c + ';' } \
+      alert = white? a:alert_val punctuation { return a + ';' } \
+      loop = white? l:(loop_fun) punctuation { return l + ';' } \
+      fun = white? f:(fun_anon / fun_decl / fun_call) punctuation { return f + ';' } \
+      bullshit = white? words:word+ punctuation { return '// ' + words.join(' ') } \
       \
-      value = string / number \
+      value = boolean / string / number / fun_name \
+      \
+      boolean = true / false \
+      true = 'good'i { return 'true' } \
+      false = 'evil'i { return 'false' } \
       \
       string = string_spaces / string_spaceless \
-      string_spaces = ('the'i white)? 'verse'i white s:notamen+ amen { return '\"' + s.join(' ') + '\"' } \
-      string_spaceless = ('the'i white)? 'word'i white w:[^ ]+ { return '\"' + w.join('') + '\"' } \
+      string_spaces = ('the'i white)? 'phrase'i white s:notamen+ amen { return '\"' + s.join(' ') + '\"' } \
+      string_spaceless = ('the'i white)? 'word'i white w:[^ \\.\\!\\?]+ { return '\"' + w.join('') + '\"' } \
       \
-      vardef = vardef_string \
-      vardef_string = 'let there be'i white s:string white 'and let it be known as'i white n:[a-zA-Z0-9]+ punctuation? { return 'var '+n.join('')+' = '+s } \
-      varnull = 'let there not be'i white n:[a-zA-Z0-9]+ punctuation? { return n.join('')+' = null' } \
-      varassign = 'let'i white n:[a-zA-Z0-9]+ white 'be'i white s:string { return n.join('')+' = '+s } \
+      var_declasn = 'let there be'i white v:value white 'and let it be known as'i white n:identifier { return 'var ' + n + ' = ' + v } \
+      var_null = 'let there not be'i white n:identifier punctuation? { return n + ' = null' } \
+      var_asn = 'let'i white n:identifier white 'be'i white v:value { return n + ' = ' +  v } \
       \
-      conditional = conditional1 \
-      conditional1 = n:[a-zA-Z0-9]+ white 'shall be'i white s:string white 'lest'i white a:alert { return 'if(!('+n.join('')+' == '+s+')) {'+a+'}' } \
+      alert_val = 'they will say'i white v:value { return 'alert(' + v + ')' } \
       \
-      alert = alert_literal / alert_var \
-      alert_literal = 'they will say'i white s:string { return 'alert('+s+')' } \
-      alert_var = 'they will say the'i white n:[a-zA-Z0-9]+{ return 'alert('+n.join('')+')' } \
+      conditional_asrteql = 'lo'i white n:identifier white 'shall be'i white v:value white 'lest'i white a:alert { return 'if(!(' + n + ' == ' + v + ')) {'+a+'}' } \
+      conditional_asrtneql = 'lo'i white n:identifier white 'shall not be'i white v:value white 'lest'i white a:alert { return 'if(!(' + n + ' != ' + v + ')) {'+a+'}' } \
+      \
+      loop_fun = n:number white 'times'i white f:fun_call { return 'for(var i=0;i<'+n+';i++){'+f+'}' } \
+      \
+      fun_decl = 'it is said in the book of'i white i:identifier punctuation white f:fun_body white amen { return 'function ' + i + ' {\\n' + f + '\\n}' } \
+      fun_body = s:sentence* { return s.join('\\n') } \
+      fun_call = 'now, 'i? 'recite'i ' the'i? white i:identifier { return i + '()' } \
+      fun_name = 'the book of'i white i:identifier { return i } \
+      fun_anon = 'recite what follows'i punctuation? white f:fun_body white amen { return 'function(){' + f + '}' } \
       \
       number = numerals / num_lt20 / num_bw20_100 \
-      \
       numerals = n:[0-9]+ { return parseInt(n.join('')) } \
-      \
-      conditional = conditional1 / conditional2 \
-      conditional1 = n:[a-zA-Z0-9]+ white 'shall be'i white s:string white 'lest'i white a:alert { return 'if(!('+n.join('')+' == '+s+')) {'+a+'}' } \
-      conditional2 = n:[a-zA-Z0-9]+ white 'shall not be'i white s:string white 'lest'i white a:alert { return 'if(!('+n.join('')+' != '+s+')) {'+a+'}' } \
-      \
-      loop = a:alert n:number white 'times'i { return 'for(var i=0;i < '+n+';i++){'+a+'}' } \
       \
       num_bw20_100 = num_bw20_100_not_mod10 / num_bw20_100_mod10 \
       num_bw20_100_not_mod10 = m:num_bw20_100_mod10 white s:num_lt20 { return m + s } \
@@ -126,13 +133,18 @@
       eighty_lit = 'eighty'i { return 80 } \
       ninety_lit = 'ninety'i { return 90 } \
       \
+      identifier = ident_dotted / ident_simple \
+      ident_simple = i:[a-zA-Z0-9]+ { return i.join('') } \
+      ident_dotted = ('the'i white)? first:ident_simple rest:(ident_dot ident_simple)* { return [first].concat(rest).flatten().reverse().join('') } \
+      ident_dot = white 'of'i ' the'i? white { return '.' } \
+      \
       amen = 'amen'i { return ';' } \
       notamen = !amen w:[^ ]+ white { return w.join('') } \
       \
       punctuation = '.' / '?' / '!' / ',' \
       word = !amen white? w:[a-zA-Z]+ white? { return w.join('') } \
       \
-      white = ' '+ { return undefined } \
+      white = [ \\n]+ { return undefined } \
       \
       boundary = &(white / !.) \
       ")
