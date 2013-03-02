@@ -26,7 +26,7 @@
 
   var God = {
     parser: PEG.buildParser("\
-      start = s:sentence* { return s.join('') } \
+    	start = s:sentence* { return s.join('') } \
       \
       sentence = scriptofjava / bullshit \
       scriptofjava = white? 'as it was said in the script of java 'i code:notamen+ amen punctuation  { return code.join(' ') + ';' } \
@@ -35,6 +35,18 @@
       string = string_spaces / string_spaceless \
       string_spaces = ('the'i white)? 'verse'i white s:notamen+ amen { return '\"' + s.join(' ') + '\"' } \
       string_spaceless = ('the'i white)? 'word'i white w:[^ ]+ { return '\"' + w.join('') + '\"' } \
+      \
+      vardef = vardef_string \
+      vardef_string = 'let there be'i white s:string white 'and let it be known as'i white n:[a-zA-Z0-9]+ punctuation? { return 'var '+n.join('')+' = '+s } \
+      varnull = 'let there not be'i white n:[a-zA-Z0-9]+ punctuation? { return n.join('')+' = null' } \
+      varassign = 'let'i white n:[a-zA-Z0-9]+ white 'be'i white s:string { return n.join('')+' = '+s } \
+      \
+      conditional = conditional1 \
+      conditional1 = n:[a-zA-Z0-9]+ white 'shall be'i white s:string white 'lest'i white a:alert { return 'if(!('+n.join('')+' == '+s+')) {'+a+'}' } \
+      \
+      alert = alert_literal / alert_var \
+      alert_literal = 'they will say'i white s:string { return 'alert('+s+')' } \
+      alert_var = 'they will say the'i white n:[a-zA-Z0-9]+ { return 'alert('+n.join('')+')' } \
       \
       number = num_gt100_not_mod100 / num_gt100_mod100 / num_lt20 / num_bw20_100 \
       \
