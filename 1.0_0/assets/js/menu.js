@@ -73,14 +73,10 @@ function religionsReady (religion_list) {
 	});
 }
 
-chrome.extension.onMessage.addListener(
-	function(request, sender, sendResponse) {
-		console.log(sender.tab ?
-			"from a content script:" + sender.tab.url :
-			"from the extension");
-		if (request.greeting == "hello")
-			sendResponse({farewell: "goodbye"});
-	});
-
+var port = chrome.extension.connect({name: "Sample Communication"});
+port.postMessage("Hi BackGround");
+port.onMessage.addListener(function(msg) {
+	console.log("message recieved"+ msg);
+});
 
 

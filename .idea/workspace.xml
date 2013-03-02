@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8b71af9-927a-4dcc-9c1b-71ba1ed5a5c0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/1.0_0/background.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/1.0_0/listener.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/1.0_0/background.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/1.0_0/assets/js/menu.js" afterPath="$PROJECT_DIR$/1.0_0/assets/js/menu.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/1.0_0/listener.js" afterPath="$PROJECT_DIR$/1.0_0/listener.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/1.0_0/manifest.json" afterPath="$PROJECT_DIR$/1.0_0/manifest.json" />
     </list>
     <ignored path="god.js.iws" />
@@ -53,19 +53,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="manifest.json" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="manifest.json" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/1.0_0/manifest.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="26" selection-start="208" selection-end="208" vertical-scroll-proportion="0.32425067">
+            <state line="6" column="6" selection-start="184" selection-end="184" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="background.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/1.0_0/background.html">
+      <file leaf-file-name="background.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/1.0_0/background.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="0" selection-start="531" selection-end="531" vertical-scroll-proportion="-6.5384617">
+            <state line="11" column="46" selection-start="331" selection-end="374" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#156#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menu.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/1.0_0/assets/js/menu.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="77" column="42" selection-start="2450" selection-end="2450" vertical-scroll-proportion="1.431611">
               <folding />
             </state>
           </provider>
@@ -74,18 +85,16 @@
       <file leaf-file-name="listener.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/1.0_0/listener.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="0" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#156#0" expanded="false" />
-              </folding>
+            <state line="11" column="0" selection-start="161" selection-end="161" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/1.0_0/assets/js/menu.js">
+      <file leaf-file-name="background.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/1.0_0/background.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="32" selection-start="2413" selection-end="2413" vertical-scroll-proportion="-2.96">
+            <state line="26" column="58" selection-start="660" selection-end="660" vertical-scroll-proportion="-11.115385">
               <folding />
             </state>
           </provider>
@@ -115,10 +124,11 @@
         <option value="$PROJECT_DIR$/1.0_0/assets/css/menu.css" />
         <option value="$PROJECT_DIR$/1.0_0/assets/js/Religion.js" />
         <option value="$USER_HOME$/AppData/Local/Google/Chrome/User Data/Default/Extensions/hohkcfiapflpfbfpjeahdfbmhpmbhcod/1.4_0/manifest.json" />
-        <option value="$PROJECT_DIR$/1.0_0/manifest.json" />
-        <option value="$PROJECT_DIR$/1.0_0/assets/js/menu.js" />
         <option value="$PROJECT_DIR$/1.0_0/background.html" />
+        <option value="$PROJECT_DIR$/1.0_0/manifest.json" />
         <option value="$PROJECT_DIR$/1.0_0/listener.js" />
+        <option value="$PROJECT_DIR$/1.0_0/assets/background.js" />
+        <option value="$PROJECT_DIR$/1.0_0/assets/js/menu.js" />
       </list>
     </option>
   </component>
@@ -204,36 +214,6 @@
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="god.js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="god.js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="1.0_0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -289,6 +269,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Will\Desktop\Web Development\god.js\1.0_0\" />
+      <recent name="C:\Users\Will\Desktop\Web Development\god.js\1.0_0\assets" />
       <recent name="C:\Users\Will\Desktop\Web Development\god.js\1.0_0\assets\js" />
       <recent name="C:\Users\Will\Desktop\Web Development\god.js\1.0_0\assets\js\lib" />
     </key>
@@ -350,7 +332,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="1" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -425,13 +407,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/1.0_0/assets/js/webfonts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="2" selection-start="78" selection-end="78" vertical-scroll-proportion="0.09264305">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/1.0_0/assets/js/common.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="23" selection-start="700" selection-end="700" vertical-scroll-proportion="0.0">
@@ -456,13 +431,6 @@
     <entry file="file://$PROJECT_DIR$/1.0_0/assets/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="19" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1.0_0/assets/css/menu.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="9" selection-start="785" selection-end="785" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -497,29 +465,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/1.0_0/assets/js/menu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="32" selection-start="2413" selection-end="2413" vertical-scroll-proportion="-2.96">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1.0_0/listener.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#156#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1.0_0/background.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="531" selection-end="531" vertical-scroll-proportion="-6.5384617">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Google/Chrome/User Data/Default/Extensions/hohkcfiapflpfbfpjeahdfbmhpmbhcod/1.4_0/manifest.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="1" selection-start="615" selection-end="615" vertical-scroll-proportion="0.720339">
@@ -534,9 +479,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/1.0_0/background.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="58" selection-start="660" selection-end="660" vertical-scroll-proportion="-11.115385">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1.0_0/listener.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="161" selection-end="161" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/1.0_0/manifest.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="26" selection-start="208" selection-end="208" vertical-scroll-proportion="0.32425067">
+        <state line="6" column="6" selection-start="184" selection-end="184" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1.0_0/assets/css/menu.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="9" selection-start="785" selection-end="785" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1.0_0/background.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="46" selection-start="331" selection-end="374" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#156#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1.0_0/assets/js/menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="42" selection-start="2450" selection-end="2450" vertical-scroll-proportion="1.431611">
           <folding />
         </state>
       </provider>
