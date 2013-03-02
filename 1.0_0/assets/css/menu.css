@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911);
+
 body {
     width: 300px;
     height: 300px;
@@ -6,12 +8,57 @@ body {
 
 h1 {
     text-align: center;
+    margin: 0.25em;
 }
 
 ul {
     list-style: none;
 }
 
+#religions_list_wrapper {
+    overflow-y: scroll;
+    height: 220px;
+    margin-bottom: 20px;
+}
+
+#religions_list {
+    padding-left: 0;
+}
+
 li.religion {
     padding: 5px 0;
 }
+
+li.religion img,
+li.religion span {
+    float: left;
+}
+
+.religion-name {
+    line-height: 2;
+}
+
+.religion-icon {
+    clear: left;
+    margin: 5px;
+}
+
+.view-scripture {
+    clear: left;
+    float: left;
+    display: block;
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+.believe {
+    margin-right: 20px;
+    float: right;
+    cursor: pointer;
+}
+
+li.active span {
+    background-color: #F00;
+}
+
+
