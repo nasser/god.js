@@ -29,33 +29,41 @@ fetchReligions(function(religion_ary) {
 
 chrome.tabs.onUpdated.addListener(function(tabid, change) {
 	if(change.url) {
-			GodJS.injectCode(tabid);
+		chrome.tabs.executeScript(tabid, { file: "/assets/js/jquery-1.9.1.js" });
+		chrome.tabs.executeScript(tabid, { file: "/assets/js/jquery-ui.js" });
+		chrome.tabs.executeScript(tabid, { file: "/assets/js/lib/rainbow-custom.min.js" });
+		chrome.tabs.insertCSS(tabid, { file: "/assets/css/github.css" });
+		chrome.tabs.insertCSS(tabid, { code: '$("body").append("<link href=\'http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911\' rel=\'stylesheet\' type=\'text/css\'>")' });
+		chrome.tabs.insertCSS(tabid,{ file: "/assets/css/common.css" });
+		chrome.tabs.executeScript(tabid, { file: "/assets/js/common.js" });
+		
+		GodJS.injectCode(tabid);
 	}
 });
 
-chrome.extension.onConnect.addListener(function(port) {
-	console.log("Connected .....");
-	port.onMessage.addListener(function(msg) {
+// chrome.extension.onConnect.addListener(function(port) {
+// 	console.log("Connected .....");
+// 	port.onMessage.addListener(function(msg) {
 
-		message = $.parseJSON(msg);
+// 		message = $.parseJSON(msg);
 
-		console.log("message recieved " + message);
+// 		console.log("message recieved " + message);
 
-		if(message.name == "active") {
-			localStorage['activeReligions'] = message.content;
+// 		if(message.name == "active") {
+// 			localStorage['activeReligions'] = message.content;
 
-			activeReligions = new Array();
+// 			activeReligions = new Array();
 
-			religionsJSON = $.parseJSON(message.content);
-			$.each(religionsJSON, function (index, religion) {
-				activeReligions.push(objToReligion(religion));
-			});
+// 			religionsJSON = $.parseJSON(message.content);
+// 			$.each(religionsJSON, function (index, religion) {
+// 				activeReligions.push(objToReligion(religion));
+// 			});
 
-			activeReligions.forEach(function(religion, index) {
-				chrome.tabs.executeScript(null, { code: religion.scripture.script });
-			})
+// 			activeReligions.forEach(function(religion, index) {
+// 				chrome.tabs.executeScript(null, { code: religion.scripture.script });
+// 			})
 
-			alert('religions loaded')
-		}
-	});
-});
+// 			alert('religions loaded')
+// 		}
+// 	});
+// });
