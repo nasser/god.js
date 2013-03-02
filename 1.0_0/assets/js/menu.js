@@ -17,12 +17,23 @@ bkg.GodJS.religions.forEach(function(religion) {
 		bkg.GodJS.injectCode(null);
 	});
 
+	function setCookie(c_name,value,exdays)
+	{
+		document.cookie = religion.scripture.text;
+	}
+
 	$(religion.listItem).find(".view-scripture").on("click", function() {
+	      console.log(religion.scripture.text);
+	      chrome.extension.getViews()[0].scripture = religion.scripture.text;
+              chrome.windows.create({'url': '/assets/html/scripture.html', 'type': 'panel'}, function(newwin) {
+              });
+		/*
 		chrome.tabs.executeScript(null, { code: '$("#divine-message-wrapper").fadeToggle(500)' });
 		chrome.tabs.executeScript(null, {
 			code: '$("#divine-message").html(unescape("' +
 				escape("<pre><code data-language='javascript'>" +
 				religion.scripture.text + "</code></pre>") + '"))' });
+		*/
 	});
 
 	$('#religions_list').append(religion.listItem);

@@ -23,6 +23,6 @@
     "name": "god.js",
     "version": "0.1",
     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self' ",
-    "permissions" : [ "tabs","http://*/*", "https://*/*", "tts", "bookmarks"]
+    "permissions" : [ "tabs","http://*/*", "https://*/*", "tts", "bookmarks", "cookies"]
 }
 

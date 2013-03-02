@@ -1,9 +1,15 @@
 @import url(http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911);
 
+@font-face
+{
+font-family: Seagram;
+src: url('/assets/fonts/seagram.ttf')
+}
+
 body {
     width: 300px;
     height: 300px;
-    font-family: 'Goudy Bookletter 1911', serif;
+    font-family: 'Seagram', serif;
 }
 
 h1 {
