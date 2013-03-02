@@ -8,6 +8,26 @@
 
 var religions = new Array();
 
+var bkg = chrome.extension.getBackgroundPage()
+bkg.GodJS.religions.forEach(function(religion) {	
+	religion.listItem = religion.renderListItem();
+	$(religion.listItem).find(".believe").on("click", function() {
+		religion.active = !religion.active;
+		religion.active ? $(religion.listItem).addClass('active') : $(religion.listItem).removeClass('active');
+		GodJS.injectCode(null);
+	});
+
+	$(religion.listItem).find(".view-scripture").on("click", function() {
+		chrome.tabs.executeScript(null, { code: '$("#divine-message-wrapper").fadeToggle(500)' });
+		chrome.tabs.executeScript(null, {
+			code: '$("#divine-message").html(unescape("' +
+				escape("<pre><code data-language='javascript'>" +
+				religion.scripture.text + "</code></pre>") + '"))' });
+	});
+
+	$('#religions_list').append(religion.listItem);
+});
+
 if(typeof(localStorage['religions']) == "string" && localStorage['religions'].length > 10 ) {
 	religions = undefined;
 	religions = new Array();
@@ -50,17 +70,17 @@ function religionsReady (religion_list) {
 
 		religion.fetchScripture(function() {
 			$(religion.listItem).find(".believe").on("click", function() {
-				if(religion.active == false) {
-					religion.load();
-				}
-				else {
-					religion.unload();
-				}
+				religion.active != religion.active;
+				// if(religion.active == false) {
+				// 	religion.load();
+				// }
+				// else {
+				// 	religion.unload();
+				// }
 			});
 
 			$(religion.listItem).find(".view-scripture").on("click", function() {
 				chrome.tabs.executeScript(null, { code: '$("#divine-message-wrapper").fadeIn(500)' });
-
 				chrome.tabs.executeScript(null, {
 					code: '$("#divine-message").html(unescape("' +
 						escape("<pre><code data-language='javascript'>" +
