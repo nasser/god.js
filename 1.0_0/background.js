@@ -29,8 +29,7 @@ fetchReligions(function(religion_ary) {
 
 chrome.tabs.onUpdated.addListener(function(tabid, change) {
 	if(change.url) {
-			console.log("injecting " + GodJS.codeToInject());
-			chrome.tabs.executeScript(tabid, { code: GodJS.codeToInject() });
+			GodJS.injectCode(tabid);
 	}
 });
 
